@@ -1,0 +1,43 @@
+
+require 'spec_helper'
+
+describe "User pages" do
+
+  subject { page }
+
+  describe "profile page" do
+  let(:asset) { FactoryGirl.create(:asset) }
+  before { visit user_path(user) }
+
+  it { should have_content(asset.category) }
+  it { should have_title(asset.category) }
+  end
+
+
+  describe "Add Item" do
+    before { visit signup_path }
+
+  let(:submit) { "create asset" }
+
+  describe "with invalid information" do
+    it "should not create an asset" do
+      expect { click_button submit }.not_to change(Assets, :count)
+    end
+  end
+
+  describe "with valid information"
+    before do
+      fill_in "Category",    with:"Example category"
+      fill_in "Description", with:"Example description"
+      fill_in "Location",    with:"Example Location"
+      fill_in "Value",       with:"$300"
+    end
+
+    it "should create a user" do
+      expect { click_button submit }.to change(Assets, :count).by(1)
+    end
+  end
+end
+ 
+
+

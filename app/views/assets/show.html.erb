@@ -1,0 +1,13 @@
+
+<% provide(:title, @asset.category) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @asset %>
+        <%= @assets.category %>
+      </h1>
+    </section>
+  </aside>
+</div>
+

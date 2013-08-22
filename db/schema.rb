@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822170859) do
+ActiveRecord::Schema.define(version: 20130822200444) do
 
   create_table "assets", force: true do |t|
     t.string   "category"
     t.string   "description"
     t.string   "location"
-    t.decimal  "value"
+    t.string   "value"
     t.binary   "picture"
     t.datetime "created_at"
     t.datetime "updated_at"
